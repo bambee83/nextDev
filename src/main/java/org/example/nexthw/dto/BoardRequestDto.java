@@ -19,7 +19,7 @@ public class BoardRequestDto {
     // 기본 생성자 (Spring 및 Jackson이 필요)
     public BoardRequestDto() {}
 
-    // 추가 생성자 (테스트 및 직접 사용 시 편리)
+    // testCode 용 추가 생성자
     public BoardRequestDto(String title) {
         this.title = title;
     }

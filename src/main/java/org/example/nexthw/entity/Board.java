@@ -34,7 +34,7 @@ public class Board {
         this.title = boardRequestDto.getTitle();
     }
 
-    // testCode 용
+    // testCode 용 추가 생성자
     public Board(Long id, String Title) {
         this.id = id;
         this.title = Title;
