@@ -14,19 +14,20 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class BoardServiceTest {
     @InjectMocks
-    private BoardService boardService;
+    private BoardService boardService; // 테스트 대상
     @Mock
-    private BoardRepository boardRepository;
+    private BoardRepository boardRepository; // Mock 객체 생성
 
-    private Board board1;
+    private Board board1; //  더미 객체(Mock Data)
 
-    @BeforeEach
+    @BeforeEach // 테스트 환경 초기화
     void setUp() {
         board1 = new Board(1L, "Test1");
     }
@@ -136,7 +137,8 @@ class BoardServiceTest {
             boardService.deleteBoard(invalidId);
         });
 
-        assertEquals("해당되는 아이디 (123)의 게시글이 없습니다.", exception.getMessage());
+        assertThat(exception.getMessage()).isEqualTo(String.format("해당되는 아이디 (%d)의 게시글이 없습니다.", invalidId));
+//        assertEquals("해당되는 아이디 (123)의 게시글이 없습니다.", exception.getMessage());
         verify(boardRepository, times(1)).findById(invalidId); // findById 호출 횟수 검증
     }
 
