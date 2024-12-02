@@ -49,6 +49,7 @@ public class BoardService {
     public BoardResponseDto updateBoard(Long id, BoardRequestDto boardRequestDto) {
         Board board = checkBoard(id);
         board.update(boardRequestDto);
+        boardRepository.save(board);
         return new BoardResponseDto(board);
     }
 
