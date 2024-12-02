@@ -57,6 +57,7 @@ public class BoardController {
     }
 
 
+    // log test
     @GetMapping("/test")
     public void test() {
         log.trace("TRACE!!");
