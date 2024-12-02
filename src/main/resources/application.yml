@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: nexthw
+
+  profiles:
+    active: prd
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
