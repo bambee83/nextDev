@@ -64,7 +64,7 @@ public class BoardService {
     // 공통 메서드 추출 (근데 전역처리에서 걸러짐 ....)
     private Board checkBoard(Long id) {
         return boardRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException(String.format("해당되는 아이디(%d)의 게시글이 없습니다.", id)));
+                () -> new IllegalArgumentException(String.format("해당되는 아이디 (%d)의 게시글이 없습니다.", id)));
     }
 
 
