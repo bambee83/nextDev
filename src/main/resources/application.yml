@@ -3,7 +3,7 @@ spring:
     name: nexthw
 
   profiles:
-    active: prd
+    active: local
 
   mvc:
     pathmatch:
