@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthCkController {
 //    @Value("${spring.profiles.active}")
 //    String profilesActive;
-//
-//    // MultiProfile test
-//    @GetMapping("/healthCk")
-//    public String healthCk() {
+
+    // MultiProfile test
+    @GetMapping("/healthCk")
+    public String healthCk() {
 //        log.info("Active Profile: {}", profilesActive);
 //        return String.format("Active Profile: %s", profilesActive);
-//    }
+        return "OK";
+    }
 
     // log test
     @GetMapping("/test")
