@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class HealthCkController {
-    @Value("${spring.profiles.active}")
-    String profilesActive;
-
-    // MultiProfile test
-    @GetMapping("/healthCk")
-    public String healthCk() {
-        log.info("Active Profile: {}", profilesActive);
-        return String.format("Active Profile: %s", profilesActive);
-    }
+//    @Value("${spring.profiles.active}")
+//    String profilesActive;
+//
+//    // MultiProfile test
+//    @GetMapping("/healthCk")
+//    public String healthCk() {
+//        log.info("Active Profile: {}", profilesActive);
+//        return String.format("Active Profile: %s", profilesActive);
+//    }
 
     // log test
     @GetMapping("/test")
