@@ -64,4 +64,4 @@ jobs:
             podman login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
             podman pull bambee83/bambee-friend:${GITHUB_SHA::7}
             podman tag bambee83/bambee-friend:${GITHUB_SHA::7} bambee-friend
-            echo "Tagging Image..."
+            echo "Tagging Image.. .."
