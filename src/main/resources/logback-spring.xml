@@ -7,13 +7,13 @@
         </encoder>
     </appender>
 
-    <!-- root레벨 설정 -->
-<!--    <root level="${LOG_LEVEL}">-->
-<!--        <appender-ref ref="CONSOLE"/>-->
-<!--    </root>-->
-    <root level="off">
-        <appender-ref ref="CONSOLE" />
+     root레벨 설정
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="CONSOLE"/>
     </root>
+<!--    <root level="off">-->
+<!--        <appender-ref ref="CONSOLE" />-->
+<!--    </root>-->
 
     <!-- 특정패키지 로깅레벨 설정 -->
     <logger name="org.example.nexthw" level="DEBUG" additivity="false">

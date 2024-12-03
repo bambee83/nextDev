@@ -56,15 +56,4 @@ public class BoardController {
         return ResponseEntity.ok(boardService.deleteBoard(id));
     }
 
-
-    // log test
-    @GetMapping("/test")
-    public void test() {
-        log.trace("TRACE!!");
-        log.debug("DEBUG!!");
-        log.info("INFO!!");
-        log.warn("WARN!!");
-        log.error("ERROR!!");
-    }
-
 }
