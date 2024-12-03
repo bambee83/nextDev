@@ -71,8 +71,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           aws deploy create-deployment \
-          --application-name nextdev \
-          --deployment-group-name nextdev-group \
-          --file-exists-behavior OVERWRITE \
-          --s3-location bucket=nextdev-deploy,bundleType=zip,key=nextDev.zip \ 
-          --region ap-northeast-2
+            --application-name nextdev \
+            --deployment-group-name nextdev-group \
+            --file-exists-behavior OVERWRITE \
+            --s3-location bucket=nextdev-deploy,bundleType=zip,key=nextDev.zip \
+            --region ap-northeast-2
