@@ -58,5 +58,4 @@ jobs:
           key: ${{ secrets.SERVER_KEY }}
           port: 22
           script: |
-            echo "Pulling the latest image..."
-                    podman login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+            echo "SSH Connection Successful!"
