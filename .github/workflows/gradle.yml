@@ -49,7 +49,7 @@ jobs:
         run: |
           mkdir -p deploy
           cp ./build/libs/*.jar ./deploy
-          cp ./scripts/deploy.sh ./deploy
+          cp ./scripts/*.sh ./deploy
           cp appspec.yml ./deploy
           zip -r ./nextDev.zip ./deploy
           
