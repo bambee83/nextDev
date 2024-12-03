@@ -53,7 +53,7 @@ jobs:
       - name: Make Directory & zip file
         run: |
           mkdir -p deploy
-          cp *.jar ./deploy
+          cp ./build/libs/*.jar ./deploy
           zip -r ./nextDev.zip ./deploy
           
 
