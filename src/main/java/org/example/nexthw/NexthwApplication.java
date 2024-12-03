@@ -10,10 +10,10 @@ public class NexthwApplication {
 //        SpringApplication application = new SpringApplication(NexthwApplication.class);
 //        application.setAdditionalProfiles("multi"); // 멀티 파일에서 원하는 프로파일 활성화
 //        System.setProperty("spring.config.location", "classpath:/application-multi.yml");
-//
-//        System.out.println("==========================================");
-//        System.out.println("Active Profile: " + System.getProperty("spring.profiles.active"));
-//        System.out.println("==========================================");
+
+        System.out.println("==========================================");
+        System.out.println("Active Profile: " + System.getProperty("spring.profiles.active"));
+        System.out.println("==========================================");
 
 
         SpringApplication.run(NexthwApplication.class, args);
