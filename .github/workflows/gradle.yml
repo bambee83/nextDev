@@ -68,10 +68,6 @@ jobs:
           debug: true
           envs: GITHUB_SHA
           script: |
-#            podman login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
-#            podman pull bambee83/bambee-friend:${GITHUB_SHA::7}
-#            podman tag bambee83/bambee-friend:${GITHUB_SHA::7} bambee-friend
-#            echo "Tagging Image..."
             echo "SSH connection successful. Testing file creation..."
             touch /root/test_ssh_connection.txt
             ls -l /root
