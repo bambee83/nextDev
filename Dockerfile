@@ -5,7 +5,7 @@ FROM openjdk:11-jdk-slim
 WORKDIR /app
 
 # Step 3: Copy the JAR file into the container
-COPY build/libs/nexthw-0.0.1.jar app.jar
+COPY build/libs/*.jar app.jar
 
 # Step 4: Expose the application port
 EXPOSE 8080
