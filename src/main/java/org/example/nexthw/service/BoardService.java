@@ -67,9 +67,7 @@ public class BoardService {
     // 커스텀 예외처리
     private Board checkBoard(Long id) {
         return boardRepository.findById(id).orElseThrow(
-                () -> new CustomException(String.format("해당되는 아이디 (%d)의 게시글이 없습니다.", id),
-                        CustomErrorCode.NOT_FOUND.getStatusCode())
-//                () -> new CustomException(CustomErrorCode.IllegalArgumentException)
+                () -> new CustomException(CustomErrorCode.IllegalArgumentException)
         );
     }
 

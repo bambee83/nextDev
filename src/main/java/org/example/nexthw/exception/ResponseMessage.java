@@ -22,13 +22,13 @@ public class ResponseMessage {
     }
 
     // 에러 응답
-    public static ResponseMessage error(CustomErrorCode errorCode) {
-        return ResponseMessage.builder()
-                .message(errorCode.getMessage())
-                .statusCode(errorCode.getStatusCode())
-                .data(null)
-                .build();
-    }
+//    public static ResponseMessage error(CustomErrorCode errorCode) {
+//        return ResponseMessage.builder()
+//                .message(errorCode.getMessage())
+//                .statusCode(errorCode.getErrorCode())
+//                .data(null)
+//                .build();
+//    }
 
 
 }
