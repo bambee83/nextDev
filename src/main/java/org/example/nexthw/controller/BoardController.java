@@ -6,6 +6,7 @@ import org.example.nexthw.dto.BoardRequestDto;
 import org.example.nexthw.exception.ResponseMessage;
 import org.example.nexthw.service.BoardService;
 import org.example.nexthw.vo.CreateBoardVo;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +25,7 @@ public class BoardController {
     public ResponseEntity<ResponseMessage> createBoard(@RequestBody BoardRequestDto requestDto) {
         CreateBoardVo createBoardVo = new CreateBoardVo(requestDto.getTitle());
         return ResponseEntity.ok(
-                ResponseMessage.success("게시글 생성 성공", boardService.createBoard(createBoardVo))
+                ResponseMessage.success(HttpStatus.CREATED,"게시글 생성 성공", boardService.createBoard(createBoardVo))
         );
     }
 
@@ -32,7 +33,7 @@ public class BoardController {
     @GetMapping
     public ResponseEntity<ResponseMessage> getAllBoards() {
         return ResponseEntity.ok(
-                ResponseMessage.success("전체 게시글 조회 성공", boardService.getAllBoards())
+                ResponseMessage.success(HttpStatus.OK,"전체 게시글 조회 성공", boardService.getAllBoards())
         );
     }
 
@@ -40,7 +41,7 @@ public class BoardController {
     @GetMapping("/{id}")
     public ResponseEntity<ResponseMessage> getBoardById(@PathVariable Long id) {
         return ResponseEntity.ok(
-                ResponseMessage.success("게시글 조회 성공", boardService.getBoardById(id))
+                ResponseMessage.success(HttpStatus.OK,"게시글 조회 성공", boardService.getBoardById(id))
         );
     }
 
@@ -50,7 +51,7 @@ public class BoardController {
                                                         @RequestBody BoardRequestDto requestDto) {
         CreateBoardVo createBoardVo = new CreateBoardVo(requestDto.getTitle());
         return ResponseEntity.ok(
-                ResponseMessage.success("게시글 수정 성공", boardService.updateBoard(id, createBoardVo))
+                ResponseMessage.success(HttpStatus.OK,"게시글 수정 성공", boardService.updateBoard(id, createBoardVo))
         );
     }
 
@@ -58,7 +59,7 @@ public class BoardController {
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseMessage> deleteBoard(@PathVariable Long id) {
         return ResponseEntity.ok(
-                ResponseMessage.success("게시글 삭제 성공", boardService.deleteBoard(id))
+                ResponseMessage.success(HttpStatus.OK,"게시글 삭제 성공", boardService.deleteBoard(id))
         );
     }
 

@@ -2,6 +2,7 @@ package org.example.nexthw.exception;
 
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 @Builder
@@ -11,10 +12,10 @@ public class ResponseMessage {
     private final Object data;
 
     // 성공 응답
-    public static ResponseMessage success(String message, Object data) {
+    public static ResponseMessage success(HttpStatus httpStatus, String message, Object data) {
         return ResponseMessage.builder()
                 .message(message)
-                .statusCode(200)
+                .statusCode(httpStatus.value())
                 .data(data)
                 .build();
     }
