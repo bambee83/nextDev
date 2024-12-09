@@ -1,12 +1,10 @@
 package org.example.nexthw.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
-@AllArgsConstructor
 public class ResponseMessage {
     private final String message;
     private final int statusCode;
@@ -22,13 +20,13 @@ public class ResponseMessage {
     }
 
     // 에러 응답
-//    public static ResponseMessage error(CustomErrorCode errorCode) {
-//        return ResponseMessage.builder()
-//                .message(errorCode.getMessage())
-//                .statusCode(errorCode.getErrorCode())
-//                .data(null)
-//                .build();
-//    }
+    public static ResponseMessage error(CustomErrorCode errorCode) {
+        return ResponseMessage.builder()
+                .message(errorCode.getMessage())
+                .statusCode(errorCode.getHttpStatus().value())
+                .data(null)
+                .build();
+    }
 
 
 }

@@ -1,17 +1,19 @@
 package org.example.nexthw.exception;
 
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public enum CustomErrorCode {
-    IllegalArgumentException(404, "해당 게시물을 찾을 수 없습니다."),
-    BAD_REQUEST(400, "잘못된 요청입니다.");
+    IllegalArgumentException(HttpStatus.NOT_FOUND, "IllegalArgumentException"),
+    BAD_REQUEST(HttpStatus.BAD_REQUEST, "BAD_REQUEST"),
+    METHOD_NOT_ALLOWED(HttpStatus.METHOD_NOT_ALLOWED,"METHOD_NOT_ALLOWED");
 
-    private final int errorCode;
+    private final HttpStatus httpStatus;
     private final String message;
 
-    CustomErrorCode(int errorCode, String message) {
-        this.errorCode = errorCode;
+    CustomErrorCode(HttpStatus httpStatus, String message) {
+        this.httpStatus = httpStatus;
         this.message = message;
     }
 }
