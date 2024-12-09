@@ -1,12 +1,14 @@
 package org.example.nexthw.entity;
 
-import org.example.nexthw.dto.BoardRequestDto;
+import org.example.nexthw.vo.CreateBoardVo;
 
 import javax.persistence.*;
 
-@Entity @Table(name = "board")
-public class Board {
+@Entity
+//@Table(name = "board")
+public class Board extends Timestamped {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BOARD_ID")
     private Long id;
 
     @Column(nullable = false)
@@ -26,12 +28,12 @@ public class Board {
 //        this.title = title;
 //    }
 
-    public Board(BoardRequestDto boardRequestDto) {
-        this.title = boardRequestDto.getTitle();
+    public Board(CreateBoardVo createBoardVo) {
+        this.title = createBoardVo.getTitle();
     }
 
-    public void update(BoardRequestDto boardRequestDto) {
-        this.title = boardRequestDto.getTitle();
+    public void update(CreateBoardVo createBoardVo) {
+        this.title = createBoardVo.getTitle();
     }
 
     // testCode 용 추가 생성자 (Service 단)

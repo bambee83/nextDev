@@ -1,12 +1,15 @@
 package org.example.nexthw.service;
 
-import org.example.nexthw.dto.BoardRequestDto;
 import org.example.nexthw.dto.BoardResponseDto;
 import org.example.nexthw.entity.Board;
+import org.example.nexthw.exception.CustomErrorCode;
+import org.example.nexthw.exception.CustomException;
 import org.example.nexthw.repository.BoardRepository;
+import org.example.nexthw.vo.CreateBoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +24,8 @@ public class BoardService {
 
     // 게시글 생성
     @Transactional
-    public BoardResponseDto createBoard(BoardRequestDto boardRequestDto) {
-        Board board = new Board(boardRequestDto);
+    public BoardResponseDto createBoard(CreateBoardVo createBoardVo) {
+        Board board = new Board(createBoardVo);
         return new BoardResponseDto(boardRepository.save(board));
     }
 
@@ -46,10 +49,10 @@ public class BoardService {
 
     // 게시글 수정
     @Transactional
-    public BoardResponseDto updateBoard(Long id, BoardRequestDto boardRequestDto) {
+    public BoardResponseDto updateBoard(Long id, CreateBoardVo createBoardVo) {
         Board board = checkBoard(id);
-        board.update(boardRequestDto);
-        boardRepository.save(board);
+        board.update(createBoardVo);
+//        boardRepository.save(board);
         return new BoardResponseDto(board);
     }
 
@@ -61,10 +64,13 @@ public class BoardService {
         return new BoardResponseDto(board);
     }
 
-    // 공통 메서드 추출 (근데 전역처리에서 걸러짐 ....)
+    // 커스텀 예외처리
     private Board checkBoard(Long id) {
         return boardRepository.findById(id).orElseThrow(
-                () -> new IllegalArgumentException(String.format("해당되는 아이디 (%d)의 게시글이 없습니다.", id)));
+                () -> new CustomException(String.format("해당되는 아이디 (%d)의 게시글이 없습니다.", id),
+                        CustomErrorCode.NOT_FOUND.getStatusCode())
+//                () -> new CustomException(CustomErrorCode.IllegalArgumentException)
+        );
     }
 
 

@@ -20,9 +20,9 @@ public class BoardResponseDto {
         this.title = board.getTitle();
     }
 
-    // tesc Code 용 (Controller 단)
-    public BoardResponseDto(Long id, String title) {
-        this.id = id;
-        this.title = title;
-    }
+//    // tesc Code 용 (Controller 단)
+//    public BoardResponseDto(Long id, String title) {
+//        this.id = id;
+//        this.title = title;
+//    }
 }
