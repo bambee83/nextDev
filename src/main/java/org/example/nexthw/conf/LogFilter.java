@@ -26,12 +26,12 @@ public class LogFilter implements Filter {
 
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         String requestURI = httpRequest.getRequestURI();
+        String httpMethod = httpRequest.getMethod();
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
 
-
         try{
-            log.info("LogFilter REQUEST [{}]", requestURI);
-            filterChain.doFilter(servletRequest, servletResponse);
+            log.info("LogFilter REQUEST [{}] [{}]", httpMethod, requestURI);
+            filterChain.doFilter(servletRequest, servletResponse); // 다음 필터 또는 서블릿 호출
         } catch (Exception e) {
             throw e;
         } finally {
