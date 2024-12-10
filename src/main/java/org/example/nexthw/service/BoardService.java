@@ -52,7 +52,7 @@ public class BoardService {
     public BoardResponseDto updateBoard(Long id, CreateBoardVo createBoardVo) {
         Board board = checkBoard(id);
         board.update(createBoardVo);
-//        boardRepository.save(board);
+        boardRepository.save(board);
         return new BoardResponseDto(board);
     }
 

@@ -20,7 +20,7 @@ public class BoardRequestDto {
     public BoardRequestDto() {}
 
 //    // testCode 용 추가 생성자 (Service 단)
-//    public BoardRequestDto(String title) {
-//        this.title = title;
-//    }
+    public BoardRequestDto(String title) {
+        this.title = title;
+    }
 }

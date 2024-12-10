@@ -25,7 +25,7 @@ public class BoardController {
     public ResponseEntity<ResponseMessage> createBoard(@RequestBody BoardRequestDto requestDto) {
         CreateBoardVo createBoardVo = new CreateBoardVo(requestDto.getTitle());
         return ResponseEntity.ok(
-                ResponseMessage.success(HttpStatus.CREATED,"게시글 생성 성공", boardService.createBoard(createBoardVo))
+                ResponseMessage.success(HttpStatus.CREATED, "게시글 생성 성공", boardService.createBoard(createBoardVo))
         );
     }
 
