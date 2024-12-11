@@ -24,10 +24,6 @@ public class Board extends Timestamped {
 
     public Board() {}
 
-    //    public Board(String title) {
-//        this.title = title;
-//    }
-
     public Board(CreateBoardVo createBoardVo) {
         this.title = createBoardVo.getTitle();
     }
