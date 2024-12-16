@@ -1,6 +1,8 @@
 package org.example.nexthw.conf;
 
+
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,9 @@ public class LogFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-         log.info("==============================");
+        final UUID uuid = UUID.randomUUID();
+        MDC.put("request_id", uuid.toString());
+        log.info("==============================");
         log.info("LogFilter doFilter");
 
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
@@ -36,6 +40,7 @@ public class LogFilter implements Filter {
             throw e;
         } finally {
             log.info("LogFilter RESPONSE [{}]", requestURI);
+            MDC.clear();
         }
          log.info("==============================");
 
