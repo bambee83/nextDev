@@ -3,6 +3,8 @@ package org.example.nexthw.conf;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -12,12 +14,13 @@ import java.util.UUID;
 
 //@Component
 @Slf4j
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class LogFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-         log.info("==============================");
+        log.info("==============================");
         log.info("LogFilter init");
-         log.info("==============================");
+        log.info("==============================");
     }
 
     @Override
@@ -33,8 +36,9 @@ public class LogFilter implements Filter {
         String httpMethod = httpRequest.getMethod();
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
 
-        try{
+        try {
             log.info("LogFilter REQUEST [{}] [{}]", httpMethod, requestURI);
+            log.info("request_id [{}]}", MDC.get("request_id"));
             filterChain.doFilter(servletRequest, servletResponse); // 다음 필터 또는 서블릿 호출
         } catch (Exception e) {
             throw e;
@@ -42,26 +46,17 @@ public class LogFilter implements Filter {
             log.info("LogFilter RESPONSE [{}]", requestURI);
             MDC.clear();
         }
-         log.info("==============================");
+        log.info("==============================");
 
-
-        // 외부 > filter ( > 처리 > ) filter > 외부
-//        System.out.println("==============================");
-//        System.out.println("startFilter");
-//        log.info(Thread.currentThread().toString());
-//        filterChain.doFilter(servletRequest, servletResponse);
-//        log.info(Thread.currentThread().toString());
-//        System.out.println("endFilter");
-//         log.info("==============================");
-
-
-
+     /*   외부 > filter( > 처리 > )filter > 외부
+        log.info(Thread.currentThread().toString());*/
     }
 
     @Override
     public void destroy() {
-         log.info("==============================");
+        log.info("==============================");
         log.info("LogFilter destroy");
-         log.info("==============================");
+        log.info("==============================");
     }
 }
+

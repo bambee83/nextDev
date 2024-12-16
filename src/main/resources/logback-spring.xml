@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 60초마다 설정 파일의 변경을 확인 하여 변경시 갱신 -->
+<configuration  scan="true" scanPeriod="60 seconds">
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+
+    <property name="LOG_PATTERN1" value="%green([%d{HH:mm:ss.SSS}]) - %highlight([%level]) - %magenta([%thread]) - %magenta([%X{request_id}]) - %cyan([%logger]) - %yellow(%msg%n)" />
+    <property name="LOG_PATTERN2" value="%green([%d{yyyy.MM.dd HH:mm:ss.SSS}]) - %clr([%level]) - %magenta([%thread]) - %magenta([%X{request_id}]) - %cyan([%-40.40logger{39}]) - %yellow(%msg%n)" />
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern> ${LOG_PATTERN1} </pattern>
+        </encoder>
+    </appender>
+
+<!--    프로필별 로그 관리하기-->
+    <springProfile name="local">
+        <logger name="org.example.nexthw" level="debug" />
+        <root level="info">
+            <appender-ref ref="consoleAppender"/>
+        </root>
+    </springProfile>
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="consoleAppender"/>
+        </root>
+    </springProfile>
+    <springProfile name="prd">
+        <root level="error">
+            <appender-ref ref="consoleAppender"/>
+        </root>
+    </springProfile>
+</configuration>
