@@ -1,14 +1,13 @@
 package org.example.nexthw.dto;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import javax.validation.constraints.NotBlank;
 
-@ApiModel(description = "내용 요청 정보")
+@Schema(description = "내용 요청 정보")
 public class BoardRequestDto {
 
-    @ApiModelProperty(value = "내용", required = true, example = "내용 예시 입니다.")
+    @Schema(description = "내용", required = true, example = "내용 예시입니다.")
     @NotBlank(message = "내용은 필수값입니다.")
     private String title;
 

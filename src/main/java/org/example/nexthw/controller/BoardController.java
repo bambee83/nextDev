@@ -1,6 +1,6 @@
 package org.example.nexthw.controller;
 
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.example.nexthw.dto.BoardRequestDto;
 import org.example.nexthw.exception.ResponseMessage;
@@ -20,7 +20,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
-    @ApiOperation(value = "게시글 생성", notes = "게시글 생성")
+    @Operation(summary= "게시글 생성", description = "게시글 생성")
     @PostMapping
     public ResponseEntity<ResponseMessage> createBoard(@RequestBody BoardRequestDto requestDto) {
         CreateBoardVo createBoardVo = new CreateBoardVo(requestDto.getTitle());
@@ -29,7 +29,7 @@ public class BoardController {
         );
     }
 
-    @ApiOperation(value = "전체 게시글 조회", notes = "전체 게시글 조회")
+    @Operation(summary= "전체 게시글 조회", description = "전체 게시글 조회")
     @GetMapping
     public ResponseEntity<ResponseMessage> getAllBoards() {
         return ResponseEntity.ok(
@@ -37,7 +37,7 @@ public class BoardController {
         );
     }
 
-    @ApiOperation(value = "단건 게시글 조회", notes = "단건 게시글 조회")
+    @Operation(summary= "단건 게시글 조회", description = "단건 게시글 조회")
     @GetMapping("/{id}")
     public ResponseEntity<ResponseMessage> getBoardById(@PathVariable Long id) {
         return ResponseEntity.ok(
@@ -45,7 +45,7 @@ public class BoardController {
         );
     }
 
-    @ApiOperation(value = "게시글 수정", notes = "게시글 수정")
+    @Operation(summary= "게시글 수정", description = "게시글 수정")
     @PutMapping("/{id}")
     public ResponseEntity<ResponseMessage> updateBoard(@PathVariable Long id,
                                                         @RequestBody BoardRequestDto requestDto) {
@@ -55,7 +55,7 @@ public class BoardController {
         );
     }
 
-    @ApiOperation(value = "게시글 삭제", notes = "게시글 삭제")
+    @Operation(summary= "게시글 삭제", description = "게시글 삭제")
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseMessage> deleteBoard(@PathVariable Long id) {
         return ResponseEntity.ok(
