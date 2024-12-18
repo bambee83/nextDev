@@ -15,7 +15,7 @@ public class HealthCkController {
 
     // healthCk
     @GetMapping("/healthCk")
-    public String healthCk() throws InterruptedException {
+    public String healthCk() {
         return "OK";
     }
 
