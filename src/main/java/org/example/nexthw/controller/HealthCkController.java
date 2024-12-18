@@ -14,7 +14,7 @@ public class HealthCkController {
     private final LogTrace logTrace;
 
     // healthCk
-    @GetMapping("/healthCk")
+    @GetMapping("/health")
     public String healthCk() {
         return "OK";
     }
