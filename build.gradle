@@ -53,6 +53,9 @@ configurations {
         runtimeOnly 'com.mysql:mysql-connector-j'
         runtimeOnly 'com.h2database:h2'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        // 테스트에서 Lombok 사용
+        testCompileOnly 'org.projectlombok:lombok'
+        testAnnotationProcessor 'org.projectlombok:lombok'
     }
 
     tasks.named('test') {
