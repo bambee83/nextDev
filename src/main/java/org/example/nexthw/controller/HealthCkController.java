@@ -16,9 +16,6 @@ public class HealthCkController {
     // healthCk
     @GetMapping("/healthCk")
     public String healthCk() throws InterruptedException {
-        log.info("hello - start");
-        Thread.sleep(1000);
-        log.info("hello - end");
         return "OK";
     }
 
