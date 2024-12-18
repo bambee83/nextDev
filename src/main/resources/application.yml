@@ -6,4 +6,4 @@ spring:
     import:
       - classpath:/properties/application-local.yml
   profiles:
-    active: local
+    active: dev

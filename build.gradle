@@ -45,10 +45,13 @@ configurations {
         implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 //        서버와 관련된 설정, 메트릭 등을 확인
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
+//        레디스
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         runtimeOnly 'com.mysql:mysql-connector-j'
+        runtimeOnly 'com.h2database:h2'
         testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     }
 
