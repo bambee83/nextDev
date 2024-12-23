@@ -12,6 +12,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 
 @Configuration
+@EnableRedisHttpSession(redisNamespace = "next:session") // Redis 를 외부 세션 저장소로 사용
 public class RedisConfig {
 
     @Value("${spring.redis.host}")

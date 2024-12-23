@@ -7,7 +7,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 
 @EnableJpaAuditing // @CreatedDate와 @LastModifiedDate 활성화
 @SpringBootApplication
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 30) // Redis 를 외부 세션 저장소로 사용
 //@PropertySource("classpath:/src/main/resources/properties/application-local.properties")
 public class ModuleApiApplication {
 
