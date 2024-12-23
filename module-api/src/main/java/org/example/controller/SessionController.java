@@ -12,7 +12,7 @@ public class SessionController {
         // 간단한 인증 로직 (실제 서비스에선 DB 조회 필요)
         if ("user".equals(username) && "password".equals(password)) {
             session.setAttribute("user", username); // 세션에 사용자 정보 저장
-            return "Login successful! Session ID: " + session.getId();
+            return "Login success! Session ID: " + session.getId();
         } else {
             return "Invalid credentials";
         }
@@ -21,7 +21,7 @@ public class SessionController {
     @PostMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // 세션 무효화
-        return "Logged out successfully!";
+        return "Logged out success!";
     }
 
     @GetMapping("/current")
@@ -30,7 +30,7 @@ public class SessionController {
         if (user != null) {
             return "Current user: " + user;
         } else {
-            return "No user logged in";
+            return "No user";
         }
     }
 }
