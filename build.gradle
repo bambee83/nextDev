@@ -24,6 +24,7 @@ subprojects {
         }
     }
 
+    // 하위 모듈에서 공통으로 사용할 라이브러리
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -36,10 +37,14 @@ subprojects {
         // log-back.xml (jdbc 설정)
 //    implementation 'org.springframework.boot:spring-boot-starter-logging'
         implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-//        서버와 관련된 설정, 메트릭 등을 확인
+        // 서버와 관련된 설정, 메트릭 등을 확인
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//        레디스
+        // Spring Boot에서 Redis를 사용하기 위한 의존성입니다.
         implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+        // Spring Session을 Redis에 저장하기 위한 의존성입니다.
+        implementation 'org.springframework.session:spring-session-data-redis'
+        // Spring Security
+        implementation 'org.springframework.boot:spring-boot-starter-security'
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -49,13 +54,6 @@ subprojects {
         // 테스트에서 Lombok 사용
         testCompileOnly 'org.projectlombok:lombok'
         testAnnotationProcessor 'org.projectlombok:lombok'
-        // 하위 모듈에서 공통으로 사용할 라이브러리
-        // ex. lombok, JPA...
-//        implementation 'org.springframework.boot:spring-boot-starter-web'
-//        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//        compileOnly 'org.projectlombok:lombok'
-//        annotationProcessor 'org.projectlombok:lombok'
-//        testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
 }
 
