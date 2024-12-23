@@ -25,7 +25,7 @@ public class RedisConfig {
             return new LettuceConnectionFactory(new RedisStandaloneConfiguration(host, port));
         }
 
-    //RedisTemplate 사용을 위한 추가 ( Session 저장소로 redis 를 사용)
+    //RedisTemplate 사용을 위한 추가,  redis 에서 값을 가져올 때 직렬화하는 방식
     @Bean
     public RedisTemplate<?, ?> redisTemplate() {
         RedisTemplate<?, ?> redisTemplate = new RedisTemplate<>();
