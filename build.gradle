@@ -4,32 +4,25 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
-//allprojects {
-    group = 'org.example'
-    version = '0.0.1'
-
-    java {
-        toolchain {
-            languageVersion = JavaLanguageVersion.of(11)
-        }
-    }
-
-    repositories {
-        mavenCentral()
-    }
-
-//}
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
-    }
+repositories {
+    mavenCentral()
 }
 
-//subprojects {
-//    apply plugin: 'java'
-//    apply plugin: 'org.springframework.boot'
-//    apply plugin: 'io.spring.dependency-management'
+// subprojects 안에는 하위 모듈에서 공통으로 적용할 사항들을 적어줍니다
+subprojects {
+    group = 'org.example'
+    version = '0.0.1'
+    sourceCompatibility = '11'
+
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
 
     dependencies {
         implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -56,18 +49,24 @@ configurations {
         // 테스트에서 Lombok 사용
         testCompileOnly 'org.projectlombok:lombok'
         testAnnotationProcessor 'org.projectlombok:lombok'
+        // 하위 모듈에서 공통으로 사용할 라이브러리
+        // ex. lombok, JPA...
+//        implementation 'org.springframework.boot:spring-boot-starter-web'
+//        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//        compileOnly 'org.projectlombok:lombok'
+//        annotationProcessor 'org.projectlombok:lombok'
+//        testImplementation 'org.springframework.boot:spring-boot-starter-test'
     }
+}
 
-    tasks.named('test') {
-        useJUnitPlatform()
-    }
+tasks.named('bootJar') {
+    enabled = false // 루트 프로젝트에서는 중복된 실행 가능한 JAR 파일을 생성하는 것을 방지
+}
 
-//    tasks.named('bootJar') { //빌드할 때 bootjar 파일로 하겠다는 의미
-//        enabled = false
-//    }
-//
-//    tasks.named('jar') { //빌드할 때 jar 파일로 하겠다는 의미
-//        enabled = true
-//    }
+tasks.named('jar') {
+    enabled = true // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
+}
 
-//}
+tasks.named('test') {
+    useJUnitPlatform()
+}
