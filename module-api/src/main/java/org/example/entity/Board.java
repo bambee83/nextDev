@@ -1,10 +1,11 @@
 package org.example.entity;
 
+import lombok.Getter;
 import org.example.vo.CreateBoardVo;
 
 import javax.persistence.*;
 
-@Entity
+@Entity @Getter
 //@Table(name = "board")
 public class Board extends Timestamped {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,14 +14,6 @@ public class Board extends Timestamped {
 
     @Column(nullable = false)
     private String title;
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
 
     public Board() {}
 

@@ -1,5 +1,6 @@
 package org.example.service;
 
+import lombok.RequiredArgsConstructor;
 import org.example.dto.BoardResponseDto;
 import org.example.entity.Board;
 import org.example.exception.CustomErrorCode;
@@ -13,14 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service @RequiredArgsConstructor
 public class BoardService {
     private final BoardRepository boardRepository;
-
-    @Autowired
-    public BoardService(BoardRepository boardRepository) {
-        this.boardRepository = boardRepository;
-    }
 
     // 게시글 생성
     @Transactional

@@ -33,4 +33,9 @@ public class SessionController {
             return "No user";
         }
     }
+
+    @GetMapping("/check")
+    public String checkSessionStorage(HttpSession session) {
+        return "Session class: " + session.getClass().getName();
+    }
 }
