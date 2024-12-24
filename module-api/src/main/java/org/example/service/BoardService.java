@@ -7,7 +7,6 @@ import org.example.exception.CustomErrorCode;
 import org.example.exception.CustomException;
 import org.example.repository.BoardRepository;
 import org.example.vo.CreateBoardVo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

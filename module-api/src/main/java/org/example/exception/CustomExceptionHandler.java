@@ -16,4 +16,11 @@ public class CustomExceptionHandler {
         return ResponseMessage.error(e.getErrorCode());
     }
 
+    // 내부 서버 에러 500
+    @ExceptionHandler(value = {Exception.class})
+    protected ResponseMessage handleException(Exception e) {
+        log.warn("Exception : {}", e.getMessage());
+        return ResponseMessage.error(CustomErrorCode.INTERNAL_SERVER_ERROR);
+    }
+
 }
