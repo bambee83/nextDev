@@ -14,10 +14,8 @@ import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-
 import java.util.Arrays;
 import java.util.List;
-
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -44,8 +42,8 @@ class BoardControllerTest {
         mockMvc.perform(post("/api/boards")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(requestDto)))
-                .andExpect(status().isOk()) // HTTP 200 응답
-                .andExpect(jsonPath("$.statusCode").value(HttpStatus.CREATED.value()))
+                .andExpect(status().isCreated())  // HTTP 201 응답으로 수정
+                .andExpect(jsonPath("$.status").value("CREATED"))
                 .andExpect(jsonPath("$.message").value("게시글 생성 성공"))
                 .andExpect(jsonPath("$.data.id").value(1L))
                 .andExpect(jsonPath("$.data.title").value("Test"));
@@ -67,7 +65,7 @@ class BoardControllerTest {
         mockMvc.perform(get("/api/boards")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.statusCode").value(HttpStatus.OK.value()))
+                .andExpect(jsonPath("$.status").value("OK"))
                 .andExpect(jsonPath("$.message").value("전체 게시글 조회 성공"))
                 .andExpect(jsonPath("$.data.size()").value(2))
                 .andExpect(jsonPath("$.data[0].id").value(1L))
@@ -90,7 +88,7 @@ class BoardControllerTest {
         mockMvc.perform(get("/api/boards/{id}", 1L)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.statusCode").value(HttpStatus.OK.value()))
+                .andExpect(jsonPath("$.status").value("OK"))
                 .andExpect(jsonPath("$.message").value("게시글 조회 성공"))
                 .andExpect(jsonPath("$.data.id").value(1L))
                 .andExpect(jsonPath("$.data.title").value("Test"));
@@ -112,7 +110,7 @@ class BoardControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(requestDto)))
                 .andExpect(status().isOk()) // HTTP 200 응답
-                .andExpect(jsonPath("$.statusCode").value(HttpStatus.OK.value()))
+                .andExpect(jsonPath("$.status").value("OK"))
                 .andExpect(jsonPath("$.message").value("게시글 수정 성공"))
                 .andExpect(jsonPath("$.data.id").value(1L))
                 .andExpect(jsonPath("$.data.title").value("Update"));
@@ -131,7 +129,7 @@ class BoardControllerTest {
         mockMvc.perform(delete("/api/boards/{id}", 1L)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()) // HTTP 200 응답
-                .andExpect(jsonPath("$.statusCode").value(HttpStatus.OK.value()))
+                .andExpect(jsonPath("$.status").value("OK"))
                 .andExpect(jsonPath("$.message").value("게시글 삭제 성공"))
                 .andExpect(jsonPath("$.data.id").value(1L))
                 .andExpect(jsonPath("$.data.title").value("Delete"));
