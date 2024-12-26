@@ -20,8 +20,6 @@ public class ThreadController {
     @GetMapping("/execute-threads")
     public ResponseEntity<ResponseMessage> executeThreads() {
         log.info("Controller: executeThreads called.");
-        return ResponseEntity.ok(
-                ResponseMessage.success(HttpStatus.OK,"쓰레드 테스트 성공", threadService.executeThreads())
-        );
+        return ResponseMessage.success(HttpStatus.OK,"쓰레드 테스트 성공", threadService.executeThreads());
     }
 }

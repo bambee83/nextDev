@@ -62,7 +62,7 @@ public class BoardService {
     // 커스텀 예외처리
     private Board checkBoard(Long id) {
         return boardRepository.findById(id).orElseThrow(
-                () -> new CustomException(CustomErrorCode. NOT_VALID_METHOD_ARGUMENT)
+                () -> new CustomException(CustomErrorCode. BOARD_NOT_FOUND)
         );
     }
 

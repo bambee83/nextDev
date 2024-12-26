@@ -14,12 +14,6 @@ public class ResponseMessage {
     private final String message;
     private final Object data;
 
-    public ResponseMessage(CustomErrorCode customErrorCode) {
-        this.status = customErrorCode.getHttpStatus();
-        this.message = customErrorCode.getMessage();
-        this.data = null;
-    }
-
     public static ResponseEntity<ResponseMessage> error(CustomException e) {
         return ResponseEntity
                 .status(e.getCustomErrorCode().getHttpStatus())
@@ -29,11 +23,13 @@ public class ResponseMessage {
                         .build());
     }
 
-    public static ResponseMessage success(HttpStatus status, String message, Object data) {
-        return ResponseMessage.builder()
+    public static ResponseEntity<ResponseMessage> success(HttpStatus status, String message, Object data) {
+        return ResponseEntity
                 .status(status)
-                .message(message)
-                .data(data)
-                .build();
+                .body(ResponseMessage.builder()
+                        .status(status)
+                        .message(message)
+                        .data(data)
+                        .build());
     }
 }
