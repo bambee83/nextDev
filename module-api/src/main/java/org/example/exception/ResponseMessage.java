@@ -14,18 +14,18 @@ public class ResponseMessage {
     private final String message;
     private final Object data;
 
-    public ResponseMessage(ErrorCode errorCode) {
-        this.status = errorCode.getHttpStatus();
-        this.message = errorCode.getMessage();
+    public ResponseMessage(CustomErrorCode customErrorCode) {
+        this.status = customErrorCode.getHttpStatus();
+        this.message = customErrorCode.getMessage();
         this.data = null;
     }
 
     public static ResponseEntity<ResponseMessage> error(CustomException e) {
         return ResponseEntity
-                .status(e.getErrorCode().getHttpStatus())
+                .status(e.getCustomErrorCode().getHttpStatus())
                 .body(ResponseMessage.builder()
-                        .status(e.getErrorCode().getHttpStatus())
-                        .message(e.getErrorCode().getMessage())
+                        .status(e.getCustomErrorCode().getHttpStatus())
+                        .message(e.getCustomErrorCode().getMessage())
                         .build());
     }
 

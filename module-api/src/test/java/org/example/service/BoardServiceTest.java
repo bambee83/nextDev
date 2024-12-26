@@ -3,7 +3,7 @@ package org.example.service;
 import org.example.dto.BoardRequestDto;
 import org.example.dto.BoardResponseDto;
 import org.example.entity.Board;
-import org.example.exception.ErrorCode;
+import org.example.exception.CustomErrorCode;
 import org.example.exception.CustomException;
 import org.example.repository.BoardRepository;
 import org.example.vo.CreateBoardVo;
@@ -147,8 +147,8 @@ class BoardServiceTest {
         });
 
         // 예외의 에러 코드와 메시지를 검증
-        assertThat(exception.getErrorCode()).isEqualTo(ErrorCode.IllegalArgumentException);
-        assertThat(exception.getErrorCode().getMessage()).isEqualTo("IllegalArgumentException");
+        assertThat(exception.getCustomErrorCode()).isEqualTo(CustomErrorCode. NOT_VALID_METHOD_ARGUMENT);
+        assertThat(exception.getCustomErrorCode().getMessage()).isEqualTo("유효하지 않은 Request Body 혹은 Argument입니다.");
 
         // findById 호출 횟수 검증
         verify(boardRepository, times(1)).findById(invalidId);

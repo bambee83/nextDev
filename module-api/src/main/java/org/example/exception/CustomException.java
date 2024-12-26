@@ -4,9 +4,9 @@ import lombok.Getter;
 
 @Getter
 public class CustomException extends RuntimeException {
-    private ErrorCode errorCode;
+    private CustomErrorCode customErrorCode;
 
-    public CustomException(ErrorCode errorCode) {
-        this.errorCode = errorCode;
+    public CustomException(CustomErrorCode customErrorCode) {
+        this.customErrorCode = customErrorCode;
     }
 }

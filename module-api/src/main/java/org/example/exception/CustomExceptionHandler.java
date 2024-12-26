@@ -13,7 +13,7 @@ public class CustomExceptionHandler {
     @ExceptionHandler(value = CustomException.class)
     public ResponseEntity<ResponseMessage> handleCustomException(CustomException e) {
         // 에러에 대한 후처리
-        log.error("[handleCustomException] {} : {}",e.getErrorCode().name(), e.getErrorCode().getMessage());
+        log.error("[handleCustomException] {} : {}",e.getCustomErrorCode().name(), e.getCustomErrorCode().getMessage());
         return ResponseMessage.error(e);
     }
 
