@@ -1,12 +1,11 @@
 package org.example.exception;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
+@RequiredArgsConstructor
 public class CustomException extends RuntimeException {
     private final CustomErrorCode customErrorCode;
 
-    public CustomException(CustomErrorCode customErrorCode) {
-        this.customErrorCode = customErrorCode;
-    }
 }
