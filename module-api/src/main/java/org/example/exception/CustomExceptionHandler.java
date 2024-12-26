@@ -8,9 +8,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-// 전역 예외 처리
 @Slf4j
-@RestControllerAdvice // 각 컨트롤러에 advice 역할을 하는 @ , bean 등록 포함
+@RestControllerAdvice // CustomException 발생 시, 프런트로 보낼 ErrorDTO 를 생성하고, ErrorDTO 를 전달하는 handler
 public class CustomExceptionHandler {
 
     @ExceptionHandler(value = CustomException.class)
