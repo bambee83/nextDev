@@ -15,7 +15,14 @@ public class Board extends Timestamped {
     @Column(nullable = false)
     private String title;
 
-    public Board() {}
+    // JPA용 기본 생성자 (리플렉션을 사용하여 객체를 생성)
+    protected Board() {}
+
+    // testCode 용 추가 생성자 (Service 단)
+    public Board(Long id, String Title) {
+        this.id = id;
+        this.title = Title;
+    }
 
     public Board(CreateBoardVo createBoardVo) {
         this.title = createBoardVo.getTitle();
@@ -23,12 +30,6 @@ public class Board extends Timestamped {
 
     public void update(CreateBoardVo createBoardVo) {
         this.title = createBoardVo.getTitle();
-    }
-
-    // testCode 용 추가 생성자 (Service 단)
-    public Board(Long id, String Title) {
-        this.id = id;
-        this.title = Title;
     }
 
 
