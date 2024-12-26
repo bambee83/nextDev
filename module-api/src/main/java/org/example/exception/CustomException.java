@@ -1,12 +1,13 @@
 package org.example.exception;
 
 import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public class CustomException extends RuntimeException {
-    private final CustomErrorCode errorCode;
+    private ErrorCode errorCode;
 
-    public CustomException(CustomErrorCode errorCode) {
+    public CustomException(ErrorCode errorCode) {
         this.errorCode = errorCode;
     }
 }
