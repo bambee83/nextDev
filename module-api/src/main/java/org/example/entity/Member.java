@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
+@Deprecated
 @Entity @Getter
 @Table(name = "members")
 public class Member extends Timestamped {

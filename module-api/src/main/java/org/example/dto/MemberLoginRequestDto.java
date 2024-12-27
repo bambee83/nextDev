@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
 
+@Deprecated
 @Getter
 public class MemberLoginRequestDto {
     @NotBlank(message = "이메일을 입력하세요.")

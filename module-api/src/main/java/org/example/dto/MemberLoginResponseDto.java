@@ -2,6 +2,7 @@ package org.example.dto;
 
 import lombok.Getter;
 
+@Deprecated
 @Getter
 public class MemberLoginResponseDto {
 
