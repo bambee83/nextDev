@@ -10,4 +10,5 @@ public interface PostClient {
 
     @GetMapping("/posts/{id}")
     PostResponseDto getPostById(@PathVariable("id") Long id);
+
 }

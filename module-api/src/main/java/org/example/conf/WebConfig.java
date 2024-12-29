@@ -1,6 +1,7 @@
 package org.example.conf;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -26,6 +27,6 @@ public class WebConfig implements WebMvcConfigurer { // implements WebMvcConfigu
         registry.addInterceptor(new LogInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/images/*", "/css/*");
+                .excludePathPatterns("/ignore", "/swagger-ui/**", "/v3/api-docs/**", "/images/*", "/css/*");
     }
 }
