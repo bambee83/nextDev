@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class PostService {
-    private final JsonPlaceholderClient jsonPlaceholderClient;
+    private final PostClient postClient;
 
-    public Post getPostById(Long id) {
-        return jsonPlaceholderClient.getPostById(id);
+    public PostResponseDto getPostById(Long id) {
+        return postClient.getPostById(id);
     }
 }
