@@ -1,5 +1,6 @@
 package org.example.utils;
 
+@Deprecated
 public class TraceStatus {
     private TraceId traceId;
     private Long startTimeMs;

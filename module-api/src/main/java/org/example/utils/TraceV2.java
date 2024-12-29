@@ -3,6 +3,7 @@ package org.example.utils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+@Deprecated
 @Slf4j @Component
 public class TraceV2 {
     private static final String START_PREFIX = "-->";

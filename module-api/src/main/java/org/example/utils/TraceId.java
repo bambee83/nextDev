@@ -3,6 +3,7 @@ package org.example.utils;
 
 import java.util.UUID;
 
+@Deprecated
 public class TraceId {
 
     private String id;

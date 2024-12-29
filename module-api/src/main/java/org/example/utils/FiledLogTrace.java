@@ -2,6 +2,7 @@ package org.example.utils;
 
 import lombok.extern.slf4j.Slf4j;
 
+@Deprecated
 @Slf4j
 public class FiledLogTrace implements LogTrace {
 

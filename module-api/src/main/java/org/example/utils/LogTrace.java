@@ -1,5 +1,6 @@
 package org.example.utils;
 
+@Deprecated
 public interface LogTrace {
 
     TraceStatus begin(String message);

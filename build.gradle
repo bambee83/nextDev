@@ -43,6 +43,9 @@ subprojects {
         implementation 'org.springframework.boot:spring-boot-starter-data-redis'
         // Spring Session을 Redis에 저장하기 위한 의존성입니다.
         implementation 'org.springframework.session:spring-session-data-redis'
+        // FeignClient
+        implementation platform("org.springframework.cloud:spring-cloud-dependencies:2022.0.5")
+        implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
