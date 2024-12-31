@@ -1,6 +1,6 @@
 package org.example.conf;
 
-import org.example.utils.CustomArgumentResolver;
+import org.example.utils.LogParameterResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,6 +34,6 @@ public class WebConfig implements WebMvcConfigurer { // implements WebMvcConfigu
 
     @Override // 커스텀 리졸버 등록
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new CustomArgumentResolver());
+        resolvers.add(new LogParameterResolver());
     }
 }
