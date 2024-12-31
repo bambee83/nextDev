@@ -18,4 +18,10 @@ public class PostController {
     public ResponseEntity<ResponseMessage> getPostById(@PathVariable Long id) {
         return ResponseMessage.success(HttpStatus.OK, "FeignClient 조회 성공", postService.getPostById(id));
     }
+
+    // http://localhost:8080/api/posts/test?customParam=testValue
+    @GetMapping("/test")
+    public String testCustomArgumentResolver(MyCustomType myCustomType) {
+        return "Received value: " + myCustomType.getValue();
+    }
 }
