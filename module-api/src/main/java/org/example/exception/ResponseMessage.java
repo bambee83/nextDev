@@ -9,10 +9,10 @@ import org.springframework.http.ResponseEntity;
 @Getter
 @Builder
 @RequiredArgsConstructor
-public class ResponseMessage {
+public class ResponseMessage<T> {
     private final HttpStatus status;
     private final String message;
-    private final Object data;
+    private final T data;
 
     public static ResponseEntity<ResponseMessage> error(CustomException e) {
         return ResponseEntity
@@ -23,7 +23,7 @@ public class ResponseMessage {
                         .build());
     }
 
-    public static ResponseEntity<ResponseMessage> success(HttpStatus status, String message, Object data) {
+    public static <T> ResponseEntity<ResponseMessage> success(HttpStatus status, String message, T data) {
         return ResponseEntity
                 .status(status)
                 .body(ResponseMessage.builder()
