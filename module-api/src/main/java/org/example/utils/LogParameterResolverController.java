@@ -8,7 +8,7 @@ public class LogParameterResolverController {
 
     // http://localhost:8080/test2?name=John
     @GetMapping("/test2")
-    public String testLogParameter(@LogParameter String name) {
+    public String LogParameter(@LogParameter String name) {
         return "Hello, " + name;
     }
 }
