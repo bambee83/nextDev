@@ -1,4 +1,5 @@
 rootProject.name = 'nexthw'
 
 include 'module-api'
+include 'module-domain'
 include 'module-service'
