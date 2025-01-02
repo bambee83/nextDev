@@ -39,8 +39,6 @@ dependencies {
     // 테스트에서 Lombok 사용
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
-    // 모듈에 대한 의존성을 선언
-//    implementation project(':module-domain')
 }
 
 tasks.named('bootJar') {
