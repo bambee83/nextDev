@@ -10,11 +10,10 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Slf4j @Component
-public class LogParameterResolver implements HandlerMethodArgumentResolver {
+public class ParamResolver implements HandlerMethodArgumentResolver {
     /**
      * 호출되는 Controller의 파라미터 값을 검사하는 콜백 함수
      *
@@ -24,7 +23,7 @@ public class LogParameterResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
         // 파라미터에 LogParameter 어노테이션이 있으면 true 반환
-        return parameter.hasParameterAnnotation(LogParameter.class);
+        return parameter.hasParameterAnnotation(Param.class);
     }
     /**
      * supportsParameter 콜백 함수에서 true를 반환했을 경우
