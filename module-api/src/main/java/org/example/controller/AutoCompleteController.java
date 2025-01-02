@@ -31,6 +31,13 @@ public class AutoCompleteController {
         return ResponseMessage.success(HttpStatus.OK, "단어 검색 성공", result);
     }
 
+    @Operation(summary = "자동완성 단어 검색 (DB 연동)", description = "DB에서 입력한 단어로 시작하는 제목을 검색합니다.")
+    @GetMapping("/db")
+    public ResponseEntity<ResponseMessage> searchWordFromDB(@RequestParam String prefix) {
+        List<String> result = autoCompleteService.autoComplete2(prefix);
+        return ResponseMessage.success(HttpStatus.OK, "DB 단어 검색 성공", result);
+    }
+
     @Operation(summary = "자동완성 단어 삭제", description = "자동완성 기능에서 특정 단어를 삭제합니다.")
     @DeleteMapping
     public ResponseEntity<ResponseMessage> deleteWord(@RequestParam String word) {
