@@ -1,7 +1,4 @@
 spring:
-  application:
-    name: nexthw
-
   config:
     import:
       - classpath:/properties/application-local.yml

@@ -16,11 +16,13 @@ import java.util.List;
 @Service @RequiredArgsConstructor
 public class BoardService {
     private final BoardRepository boardRepository;
+    private final AutoCompleteService autoCompleteService;
 
     // 게시글 생성
     @Transactional
     public BoardResponseDto createBoard(CreateBoardVo createBoardVo) {
         Board board = new Board(createBoardVo);
+        autoCompleteService.addTrie(createBoardVo.getTitle());
         return new BoardResponseDto(boardRepository.save(board));
     }
 
@@ -46,6 +48,8 @@ public class BoardService {
     @Transactional
     public BoardResponseDto updateBoard(Long id, CreateBoardVo createBoardVo) {
         Board board = checkBoard(id);
+        autoCompleteService.deleteTrie(board.getTitle());
+        autoCompleteService.addTrie(createBoardVo.getTitle());
         board.update(createBoardVo);
         boardRepository.save(board);
         return new BoardResponseDto(board);

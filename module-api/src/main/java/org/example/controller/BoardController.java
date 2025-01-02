@@ -2,6 +2,7 @@ package org.example.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.example.dto.BoardRequestDto;
 import org.example.exception.ResponseMessage;
 import org.example.service.BoardService;
@@ -11,14 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/boards")
+@RequestMapping("/api/boards") @RequiredArgsConstructor
 @Tag(name = "Board", description = "게시글")
 public class BoardController {
     private final BoardService boardService;
-
-    public BoardController(BoardService boardService) {
-        this.boardService = boardService;
-    }
 
     @Operation(summary = "게시글 생성", description = "게시글 생성")
     @PostMapping
