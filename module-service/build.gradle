@@ -8,17 +8,20 @@ repositories {
 }
 
 dependencies {
-
-	// 모듈에 대한 의존성을 선언
-//    implementation project(':module-domain')
+	implementation project(':module-domain') // Domain 모듈 의존성
+	implementation project(':module-core') // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)
+	implementation 'org.springframework.boot:spring-boot-starter' // Spring Boot 기본 의존성
+	// 테스트 의존성
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 tasks.named('bootJar') {
-	enabled = true // 실행 가능한 JAR 파일 생성을 활성화
+	enabled = false // 실행 가능한 JAR 파일 생성을 활성화
 }
 
 tasks.named('jar') {
-	enabled = true
+	enabled = true // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
 }
 
 tasks.named('test') {

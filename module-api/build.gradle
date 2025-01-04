@@ -9,36 +9,16 @@ repositories {
 
 dependencies {
     implementation project(':module-service')  // service 모듈을 의존
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation project(':module-domain')  // domain 모듈을 의존
+    implementation project(':module-core')  // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)
+    implementation 'org.springframework.boot:spring-boot-starter-web'  // 웹 관련 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-validation'  // 유효성 검사
     // Swagger 3.0.0
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
-    // mysql
-//        implementation 'mysql:mysql-connector-java'
-    // log-back.xml (jdbc 설정)
-//    implementation 'org.springframework.boot:spring-boot-starter-logging'
-    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
-    // 서버와 관련된 설정, 메트릭 등을 확인
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    // Spring Boot에서 Redis를 사용하기 위한 의존성입니다.
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    // Spring Session을 Redis에 저장하기 위한 의존성입니다.
-    implementation 'org.springframework.session:spring-session-data-redis'
-    // FeignClient
-    implementation platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5")
-    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
-    // trie
-    implementation "org.apache.commons:commons-collections4:4.3"
+    // 테스트 의존성
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    // mysql
-    runtimeOnly 'com.mysql:mysql-connector-j'
-    runtimeOnly 'com.h2database:h2'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    // 테스트에서 Lombok 사용
-    testCompileOnly 'org.projectlombok:lombok'
-    testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('bootJar') {
@@ -46,7 +26,7 @@ tasks.named('bootJar') {
 }
 
 tasks.named('jar') {
-    enabled = true
+    enabled = false
 }
 
 tasks.named('test') {

@@ -8,17 +8,26 @@ repositories {
 }
 
 dependencies {
-
-    // 모듈에 대한 의존성을 선언
-//    implementation project(':module-domain')
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'    // 서버와 관련된 설정, 메트릭 등을 확인
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'    // log-back.xml (jdbc 설정)
+    // Spring Boot에서 Redis를 사용하기 위한 의존성입니다.
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    // Spring Session을 Redis에 저장하기 위한 의존성입니다.
+    implementation 'org.springframework.session:spring-session-data-redis'
+    // FeignClient
+    implementation platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5")
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    // trie
+    implementation "org.apache.commons:commons-collections4:4.3"
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('bootJar') {
-    enabled = true // 실행 가능한 JAR 파일 생성을 활성화
+    enabled = false // 실행 가능한 JAR 파일 생성을 활성화
 }
 
 tasks.named('jar') {
-    enabled = true
+    enabled = true // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
 }
 
 tasks.named('test') {

@@ -50,7 +50,12 @@ http://localhost:8080/swagger-ui/index.html 로 접속
 
 ### 방법
 
-# 계층 기반 구성 (API, SERVICE, DOMAIN 등)
+<br />
+
+---
+
+# 멀티모듈
+### 계층 기반 구성 (API, SERVICE, DOMAIN 등)
 	•	api: API 컨트롤러 및 DTO 관련 모듈.
 	•	service: 서비스 계층과 비즈니스 로직을 담은 모듈.
 	•	domain (or db): 엔티티, 레포지토리 및 DB 관련 모듈.
@@ -59,13 +64,13 @@ http://localhost:8080/swagger-ui/index.html 로 접속
 - module-api/
     - controller/
     - dto/
+    - vo/
 - module-service/
     - service/
-    - utils/
-    - vo/
 - module-domain/
     - entity/
     - repository/
-    - exception/
 - module-core/ (선택, 공통 유틸리티, 설정)
     - conf/
+    - utils/
+    - exception/

@@ -2,9 +2,7 @@ package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-@EnableJpaAuditing // @CreatedDate, @LastModifiedDate 활성화
 @SpringBootApplication
 //@PropertySource("classpath:/src/main/resources/properties/application-local.properties")
 public class ModuleApiApplication {
