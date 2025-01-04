@@ -6,7 +6,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'  // 웹 관련 의존성
     // 서버와 관련된 설정, 메트릭 등을 확인
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
     // 테스트 의존성
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

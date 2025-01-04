@@ -4,6 +4,10 @@ dependencies {
 	// Swagger 3.0.0
 	api 'org.springdoc:springdoc-openapi-ui:1.6.14'
 	api group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+	// FeignClient
+	api platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5")
+	api "org.springframework.cloud:spring-cloud-starter-openfeign"
+	implementation  "org.apache.commons:commons-collections4:4.3"	// trie
 	// 테스트 의존성
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
