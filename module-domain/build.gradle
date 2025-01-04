@@ -8,6 +8,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(':module-core')  // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'  // JPA 의존성
     implementation 'org.springframework.boot:spring-boot-starter-validation'  // 유효성 검사
     testImplementation 'org.springframework.boot:spring-boot-starter-test'  // 테스트 의존성
