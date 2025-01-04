@@ -1,4 +1,4 @@
-package org.example.utils;
+package org.example.service;
 
 import org.example.dto.PostResponseDto;
 import org.springframework.cloud.openfeign.FeignClient;
