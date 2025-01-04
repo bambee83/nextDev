@@ -62,13 +62,17 @@ http://localhost:8080/swagger-ui/index.html 로 접속
 
 - project-root/
 - module-api/
+    - aop/
+    - conf/ 
     - controller/
-    - dto/
-    - vo/
+    - dto/ 
+    - exception/
+    - utils/
 - module-service/
     - service/
 - module-domain/
     - entity/
+    - vo/
     - repository/
 - module-core/ (선택, 공통 유틸리티, 설정)
     - conf/
@@ -85,5 +89,3 @@ http://localhost:8080/swagger-ui/index.html 로 접속
             도메인 로직을 처리하며, module-core와 module-domain만 참조 가능.
 4.	module-api (컨트롤러, DTO, 요청/응답):
             최상위 계층으로, 외부로 노출되는 API를 담당. 다른 모든 하위 모듈을 참조 가능.
-      module-core -> module-domain -> module-service -> module-api
-      dd

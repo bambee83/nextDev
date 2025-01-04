@@ -1,6 +1,8 @@
-package org.example.utils;
+package org.example.service;
 
 import lombok.RequiredArgsConstructor;
+import org.example.utils.PostClient;
+import org.example.utils.PostResponseDto;
 import org.springframework.stereotype.Service;
 
 @Service

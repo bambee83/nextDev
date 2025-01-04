@@ -1,5 +1,7 @@
-package org.example.conf;
+package org.example.config;
 
+import org.example.aop.LogFilter;
+import org.example.aop.LogInterceptor;
 import org.example.utils.ParamResolver;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

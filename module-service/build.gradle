@@ -1,12 +1,3 @@
-plugins {
-	id 'java'
-}
-
-// config 모듈의 build.gradle 파일
-repositories {
-	mavenCentral()
-}
-
 dependencies {
 	implementation project(':module-domain') // Domain 모듈 의존성
 	implementation project(':module-core') // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)

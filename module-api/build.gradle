@@ -1,21 +1,16 @@
-plugins {
-    id 'java'
-}
-
-// config 모듈의 build.gradle 파일
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     implementation project(':module-service')  // service 모듈을 의존
     implementation project(':module-domain')  // domain 모듈을 의존
     implementation project(':module-core')  // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)
+
     implementation 'org.springframework.boot:spring-boot-starter-web'  // 웹 관련 의존성
-    implementation 'org.springframework.boot:spring-boot-starter-validation'  // 유효성 검사
+    // 서버와 관련된 설정, 메트릭 등을 확인
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
     // Swagger 3.0.0
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
     implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
+
+
     // 테스트 의존성
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

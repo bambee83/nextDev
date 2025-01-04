@@ -1,7 +1,8 @@
-package org.example.utils;
+package org.example.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.exception.ResponseMessage;
+import org.example.service.PostService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
