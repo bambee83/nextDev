@@ -1,7 +1,9 @@
-package org.example.exception;
+package org.example.utils;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
+import org.example.exception.CustomErrorCode;
+import org.example.exception.CustomException;
 
 public class FeignClientErrorDecoder implements ErrorDecoder {
 

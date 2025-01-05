@@ -8,6 +8,7 @@ dependencies {
     // FeignClient
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5")
     implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    implementation 'com.fasterxml.jackson.core:jackson-databind'    // Jackson Databind
 }
 
 tasks.named('bootJar') {

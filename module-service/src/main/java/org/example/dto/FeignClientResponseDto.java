@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 public class FeignClientResponseDto {
-    @NotNull
+    private Integer userId;
     private Long id;
     private String title;
     private String body;
