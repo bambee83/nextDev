@@ -3,4 +3,10 @@ spring:
     import:
       - classpath:/properties/application-local.yml
   profiles:
-    active: dev
+    active: local
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full

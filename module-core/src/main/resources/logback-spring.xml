@@ -14,7 +14,7 @@
 
     <!--springProfile 태그를 사용하면 logback 설정파일에서 복수개의 프로파일을 설정할 수 있다.-->
     <springProfile name="local">
-        <logger name="org.example.nexthw" level="debug" />
+        <logger name="org.example" level="debug" />
         <!-- Tomcat과 관련된 스레드 풀, 커넥션, 요청 처리에 대한 로그를 출력 -->
 <!--        <logger name="org.apache.catalina" level="DEBUG" />-->
 <!--        <logger name="org.apache.coyote" level="DEBUG" />-->

@@ -2,6 +2,7 @@ package org.example.config;
 
 import feign.RequestInterceptor;
 import feign.Retryer;
+import lombok.extern.slf4j.Slf4j;
 import org.example.utils.FeignClientDecoder;
 import org.example.utils.FeignClientErrorDecoder;
 import org.example.utils.FeignClientInterceptor;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.TimeUnit;
 
-@Configuration
+@Configuration @Slf4j
 @EnableFeignClients("org.example") // FeignClient 활성화
 public class FeignConfig {
 
