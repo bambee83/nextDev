@@ -1,13 +1,16 @@
 package org.example.controller;
 
+import org.example.exception.ResponseMessage;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/api/ignore")
 public class IgnoreController {
 
-    @GetMapping("/ignore")
-    public String ignoreEndpoint() {
-        return "[인터셉터] 특정 컨트롤러 제외 성공";
+    @GetMapping
+    public ResponseEntity<ResponseMessage> ignore() {
+        return ResponseMessage.success(HttpStatus.OK, "조회 성공", null);
     }
 }
