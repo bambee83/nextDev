@@ -21,18 +21,6 @@ public class CustomExceptionHandler {
         return ResponseMessage.error(e);
     }
 
-    // feign 처리
-    @ExceptionHandler(FeignException.class)
-    public ResponseEntity<ResponseMessage> handleFeignException(FeignException e) {
-        log.error("[handleFeignException] {}", e.getMessage());
-        return ResponseEntity
-                .status(HttpStatus.BAD_GATEWAY)
-                .body(ResponseMessage.builder()
-                        .status(HttpStatus.BAD_GATEWAY)
-                            .message(CustomErrorCode.FAILED_FEIGN_CLIENT.getMessage())
-                        .build());
-    }
-
     // HttpRequestMethodNotSupportedException 처리
     @ExceptionHandler(value = HttpRequestMethodNotSupportedException.class)
     public ResponseEntity<ResponseMessage> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException e) {
