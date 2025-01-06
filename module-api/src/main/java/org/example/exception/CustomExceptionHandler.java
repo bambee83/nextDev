@@ -15,7 +15,7 @@ public class CustomExceptionHandler {
     @ExceptionHandler(value = CustomException.class)
     public ResponseEntity<ResponseMessage> handleCustomException(CustomException e) {
         // 에러에 대한 후처리
-        log.error("[handleCustomException] {} : {}",e.getCustomErrorCode().name(), e.getCustomErrorCode().getMessage());
+        log.error("[handleCustomException] {} : {}", e.getCustomErrorCode().name(), e.getCustomErrorCode().getMessage());
         return ResponseMessage.error(e);
     }
 
@@ -25,10 +25,11 @@ public class CustomExceptionHandler {
         log.error("[handleHttpRequestMethodNotSupported] {}", e.getMessage());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseMessage.builder()
-                        .status(HttpStatus.BAD_REQUEST)
-                        .message(CustomErrorCode.NOT_SUPPORTED_HTTP_METHOD.getMessage())
-                        .build());
+                .body(new ResponseMessage<>(
+                        HttpStatus.BAD_REQUEST,
+                        CustomErrorCode.NOT_SUPPORTED_HTTP_METHOD.getMessage(),
+                        null
+                ));
     }
 
     // MethodArgumentNotValidException 처리
@@ -37,10 +38,11 @@ public class CustomExceptionHandler {
         log.error("[handleMethodArgumentNotValid] {}", e.getMessage());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
-                .body(ResponseMessage.builder()
-                        .status(HttpStatus.BAD_REQUEST)
-                        .message(CustomErrorCode.NOT_VALID_METHOD_ARGUMENT.getMessage())
-                        .build());
+                .body(new ResponseMessage<>(
+                        HttpStatus.BAD_REQUEST,
+                        CustomErrorCode.NOT_VALID_METHOD_ARGUMENT.getMessage(),
+                        null
+                ));
     }
 
     // 전역 예외 처리 (기타)
@@ -49,9 +51,10 @@ public class CustomExceptionHandler {
         log.error("[handleGeneralException] {}", e.getMessage(), e);
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(ResponseMessage.builder()
-                        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                        .message(CustomErrorCode.INTERNAL_SERVER_ERROR.getMessage())
-                        .build());
+                .body(new ResponseMessage<>(
+                        HttpStatus.INTERNAL_SERVER_ERROR,
+                        CustomErrorCode.INTERNAL_SERVER_ERROR.getMessage(),
+                        null
+                ));
     }
 }
