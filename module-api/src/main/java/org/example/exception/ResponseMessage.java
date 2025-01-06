@@ -3,7 +3,8 @@ package org.example.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-public record ResponseMessage<T>(HttpStatus status, String message, T data) {
+public record ResponseMessage <T> (HttpStatus status, String message, T data) {
+
     public static ResponseEntity<ResponseMessage> error(CustomException e) {
         return ResponseEntity
                 .status(e.getCustomErrorCode().getHttpStatus())
