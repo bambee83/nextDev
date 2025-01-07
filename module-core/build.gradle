@@ -1,14 +1,14 @@
 dependencies {
     implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'    // log-back.xml (jdbc 설정)
     implementation 'org.springframework.boot:spring-boot-starter-validation'  // 유효성 검사
-    api 'org.springframework.boot:spring-boot-starter-data-jpa'  // JPA 의존성
+    api 'org.springframework.boot:spring-boot-starter-data-jpa'  // JPA 의존성 > api
     implementation  "org.apache.commons:commons-collections4:4.3"	// trie
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'    // Spring Boot에서 Redis를 사용
-    implementation 'org.springframework.session:spring-session-data-redis'    // Spring Session을 Redis에 저장
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'    // Spring Boot에서 Redis를 사용 > api
+    implementation 'org.springframework.session:spring-session-data-redis'    // Spring Session을 Redis에 저장 > api
     // FeignClient
     implementation platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5")
     implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
-    implementation 'com.fasterxml.jackson.core:jackson-databind'    // Jackson Databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind'    // Jackson Databind    > service 또는 api
 }
 
 tasks.named('bootJar') {
@@ -16,7 +16,7 @@ tasks.named('bootJar') {
 }
 
 tasks.named('jar') {
-    enabled = true // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
+    enabled = false // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 > api ,batch, consumer 만 true
 }
 
 tasks.named('test') {

@@ -1,6 +1,6 @@
 dependencies {
     implementation project(':module-core')  // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)
-    // 데이터베이스 드라이버 (MySQL과 H2)
+    // 데이터베이스 드라이버 (MySQL 과 H2)
     runtimeOnly 'com.mysql:mysql-connector-j'
     runtimeOnly 'com.h2database:h2'
 }
@@ -10,7 +10,7 @@ tasks.named('bootJar') {
 }
 
 tasks.named('jar') {
-    enabled = true // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
+    enabled = false // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
 }
 
 tasks.named('test') {

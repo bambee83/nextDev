@@ -79,7 +79,7 @@ http://localhost:8080/swagger-ui/index.html 로 접속
     - exception/
 
 
-      module-core -> module-domain -> module-service -> module-api
+      module-core <- module-domain <- module-service <- module-api
       		
 1. module-core (공통 유틸리티, 설정, 예외 처리 등): 가장 아래쪽에 위치하며, 모든 모듈이 참조 가능.
 2.	module-domain (엔티티, 레포지토리):
