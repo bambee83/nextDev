@@ -16,6 +16,8 @@ import java.util.List;
 @Configuration
 public class WebConfig implements WebMvcConfigurer { // implements WebMvcConfigurer : Interceptor 등록
 
+//    private final AuthInterceptor authInterceptor;
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();

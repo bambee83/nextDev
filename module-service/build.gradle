@@ -1,6 +1,7 @@
 dependencies {
 	implementation project(':module-domain') // Domain 모듈 의존성
 	implementation project(':module-core') // Core 모듈 의존성 (공통 유틸리티, 예외 처리 등)
+	implementation 'org.springframework.boot:spring-boot-starter-web'
 	// Swagger 3.0.0
 	api 'org.springdoc:springdoc-openapi-ui:1.6.14'
 	api group: 'io.springfox', name: 'springfox-swagger-ui', version: '3.0.0'
@@ -8,6 +9,9 @@ dependencies {
 	api platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5")
 	api "org.springframework.cloud:spring-cloud-starter-openfeign"
 	implementation  "org.apache.commons:commons-collections4:4.3"	// trie
+	// 인증인가
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.security:spring-security-crypto'
 	// 테스트 의존성
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'

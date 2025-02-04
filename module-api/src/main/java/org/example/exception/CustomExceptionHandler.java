@@ -1,5 +1,6 @@
 package org.example.exception;
 
+import feign.FeignException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,21 @@ public class CustomExceptionHandler {
         // 에러에 대한 후처리
         log.error("[handleCustomException] {} : {}", e.getCustomErrorCode().name(), e.getCustomErrorCode().getMessage());
         return ResponseMessage.error(e);
+    }
+
+    // FeignException 처리
+    @ExceptionHandler(value = FeignException.class)
+    public ResponseEntity<ResponseMessage> handleFeignException(FeignException e) {
+        log.error("[handleFeignException] Status: {}, Message: {}", e.status(), e.getMessage());
+        HttpStatus status = HttpStatus.valueOf(e.status());
+        String message = e.getMessage();
+        return ResponseEntity
+                .status(status)
+                .body(new ResponseMessage<>(
+                        status,
+                        message,
+                        null
+                ));
     }
 
     // HttpRequestMethodNotSupportedException 처리

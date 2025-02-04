@@ -2,7 +2,9 @@ package org.example.config;
 
 import feign.RequestInterceptor;
 import feign.Retryer;
+import feign.codec.ErrorDecoder;
 import lombok.extern.slf4j.Slf4j;
+import org.example.exception.CustomErrorDecoder;
 import org.example.utils.FeignClientDecoder;
 import org.example.utils.FeignClientErrorDecoder;
 import org.example.utils.FeignClientInterceptor;
@@ -30,6 +32,9 @@ public class FeignConfig {
     public RequestInterceptor requestInterceptor() {
         return new FeignClientInterceptor();  // 커스텀 RequestInterceptor
     }
+
+    @Bean
+    public ErrorDecoder errorDecoder() { return new CustomErrorDecoder(); }
 
     @Bean
     public Retryer retryer() {

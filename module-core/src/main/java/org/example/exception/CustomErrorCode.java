@@ -14,6 +14,9 @@ public enum CustomErrorCode {
     BOARD_NOT_FOUND(HttpStatus.BAD_REQUEST, "해당 게시글을 찾을 수 없습니다."),
     INVALID_PARAMETER(HttpStatus.BAD_REQUEST, "파라미터가 유효하지 않습니다."),
 
+    BAD_REQUEST(HttpStatus.BAD_REQUEST, "ᕕ( ᐛ )ᕗ 잘못된 요청입니다."),
+    NOT_FOUND(HttpStatus.NOT_FOUND, "ᕕ( ᐛ )ᕗ 리소스를 찾을 수 없습니다."),
+
     //== FEIGN ==//
     FEIGN_BAD_REQUEST(HttpStatus.BAD_REQUEST, "ᕕ( ᐛ )ᕗ 잘못된 요청입니다."),
     FEIGN_NOT_FOUND(HttpStatus.NOT_FOUND, "ᕕ( ᐛ )ᕗ 리소스를 찾을 수 없습니다."),
