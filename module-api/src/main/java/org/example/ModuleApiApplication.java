@@ -2,8 +2,10 @@ package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EntityScan(basePackages = "org.example")
 //@PropertySource("classpath:/src/main/resources/properties/application-local.properties")
 public class ModuleApiApplication {
 

@@ -10,7 +10,7 @@ tasks.named('bootJar') {
 }
 
 tasks.named('jar') {
-    enabled = false // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
+    enabled = true // 각 모듈의 라이브러리 JAR 파일을 생성하기 위해 킴
 }
 
 tasks.named('test') {
